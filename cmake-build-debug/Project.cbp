@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/ilins/CLionProjects/Project/Player.h">
+			<Option target="Project"/>
+		</Unit>
 		<Unit filename="C:/Users/ilins/CLionProjects/Project/View.h">
 			<Option target="Project"/>
 		</Unit>

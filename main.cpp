@@ -1,20 +1,6 @@
 #include <SFML/Graphics.hpp>
-//#include "View.h" // работа с камерой
-
-sf::View view; // объект типа вида
-sf::View setViewCamera(sf::Vector2f coordinate) // функция для слежения за игроком
-{
-    sf::Vector2f tempCoordinate = coordinate;
-
-    // делаем границы, чтобы нельзя было выйти за них камере
-    if (coordinate.x < 204) tempCoordinate.x = 204;
-    if (coordinate.x > 756) tempCoordinate.x = 756;
-    tempCoordinate.y = 152;
-
-
-    view.setCenter(tempCoordinate.x, tempCoordinate.y); // устанавливаем центр
-    return view; //возвращаем камеру
-}
+#include "View.h" // работа с камерой
+#include "Player.h" //класс игрока
 
 int main()
 {
@@ -23,7 +9,7 @@ int main()
 
     //В этом блоке создается текстура и спрайт, где находится картинка gameOver для показа завершения игры
     sf::Texture texture;
-    texture.loadFromFile("C:/Users/ilins/CLionProjects/Game/gameOver.png");
+    texture.loadFromFile("C:/Users/ilins/CLionProjects/Project/gameOver.png");
     sf::Sprite gameOver;
     gameOver.setTexture(texture);
     //
@@ -41,13 +27,22 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close(); // закрываем окно, если пользователь нажал на крестик
         }
+            /*
+            if(!player.gameIsOver()) // пока игра не завершена
+            {
+                ...
+            }
 
-        window.clear(); // очищаем экран
-        view.setCenter(200, 150); //установка камеры в начальное положение
-        window.setView(view);
-        window.draw(gameOver); // выводим картинку о завершении игры
-        window.display(); // отображаем изминения
-    }
+            else // иначе, если игра завершилась
+            {
+                window.clear(); // очищаем экран
+                view.setCenter(200, 150); //установка камеры в начальное положение
+                window.setView(view);
+                window.draw(gameOver); // выводим картинку о завершении игры
+                window.display(); // отображаем изминения
+            }
+             */
+        }
 
     return 0;
 }
