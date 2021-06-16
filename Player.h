@@ -1,3 +1,5 @@
+#include <utility>
+
 #pragma once
 class Player : public sf::Drawable // класс нашего персонажа, наследуем от Drawable для удобной отрисовки в дальнейшем
 {
@@ -12,9 +14,9 @@ private: // публичные поля
     sf::Vector2f position_;
 
     // направление, ускорение и скорость
-    int dir_;
+    int dir_{};
     sf::Vector2f acceleration_;
-    float speed_;
+    float speed_{};
 
     // здоровье персонажа и количетсво собранного золота
     float health_;
@@ -26,7 +28,7 @@ private: // публичные поля
 
 public: // приватные поля
 
-    Player(sf::Vector2f size, sf::Vector2f position, std::string path) // конструктор, принимает размер, положение персонажа и путь до файла с картинкой
+    Player(sf::Vector2f size, sf::Vector2f position, const std::string& path) // конструктор, принимает размер, положение персонажа и путь до файла с картинкой
     {
         // инициализируем приватные поля полученными данными
         this->size_ = size;
@@ -45,14 +47,14 @@ public: // приватные поля
     }
 
     // метод для загрузки текстур
-    void loadTexture(std::string path)
+    void loadTexture(const std::string& path)
     {
         // загружаем и устанавливаем спрайт
         texture_.loadFromFile(path);
         sprite_.setTexture(texture_);
 
         // загружаем шрифт
-        font_.loadFromFile("C:/Users/ilins/CLionProjects/Game/font.ttf");
+        font_.loadFromFile("C:/Users/ilins/CLionProjects/Project/files/font.ttf");
 
         // задаем настройки для текста
         text_->setFont(font_);
@@ -182,7 +184,7 @@ public: // приватные поля
     }
 
     // чтобы узнать, завершена игра или нет
-    bool gameIsOver()
+    bool gameIsOver() const
     {
         if (health_ <= 0 || gold_ == 6) return true; // если здоровье меньше нуля или собрано все золото, то да
         return false; // иначе нет

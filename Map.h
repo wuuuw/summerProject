@@ -1,3 +1,5 @@
+#include <utility>
+
 #pragma once
 
 const int HEIGHT = 5; // высота карты
@@ -25,15 +27,15 @@ public:
     // O - шипы
     // H - сердце
 
-    Map(std::string path) // конструктор класса
+    explicit Map(std::string path) // конструктор класса
     {
-        this->path_ = path; // инициализируем значением переменную пути
+        this->path_ = std::move(path); // инициализируем значением переменную пути
 
         loadTexture(path_); // загружаем текструы
     }
 
     // собственно метод загрузки текстур
-    void loadTexture(std::string path)
+    void loadTexture(const std::string& path)
     {
         texture_.loadFromFile(path);
         sprite_->setTexture(texture_);
@@ -42,7 +44,7 @@ public:
     // унаследованный метод для удобной отрисовки
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override
     {
-        // в двух циклах прохожимся по каждому элементу карты
+        // в двух циклах прохоДимся по каждому элементу карты
         for (int i = 0; i < HEIGHT; i++)
         {
             for (int j = 0; j < WIDTH; j++)

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/ilins/CLionProjects/Project/Player.h
+utility
+-
+
+C:/Users/ilins/CLionProjects/Project/View.h
+
 C:/Users/ilins/CLionProjects/Project/doctest/catch.hpp
 doctest.h
 C:/Users/ilins/CLionProjects/Project/doctest/doctest.h
@@ -97,4 +103,8 @@ unistd.h
 C:/Users/ilins/CLionProjects/Project/test.cpp
 doctest/catch.hpp
 C:/Users/ilins/CLionProjects/Project/doctest/catch.hpp
+View.h
+C:/Users/ilins/CLionProjects/Project/View.h
+Player.h
+C:/Users/ilins/CLionProjects/Project/Player.h
 

@@ -9,14 +9,13 @@ int main()
     // создаем окно размером 800 на 600, под названием "Game"
     view.reset(sf::FloatRect(0, 0, 400, 300)); // уменьшем нашу камеру, чтобы тем самым увеличить персонажа
 
-    Player player({ 32, 44 }, { 200, 120 }, "C:/Users/ilins/CLionProjects/Game/hero.png");
+    Player player({ 32, 44 }, { 200, 120 }, "C:/Users/ilins/CLionProjects/Project/files/hero.png");
     // создаем главного героя с размером 32 на 44 на координатах 200, 120 с текстурой из файла "hero.png"
 
-    Map map("C:/Users/ilins/CLionProjects/Game/map.png"); // создаем карту с тестурой из "map.png"
+    Map map("C:/Users/ilins/CLionProjects/Project/files/map.png"); // создаем карту с тестурой из "map.png"
 
-    //В этом блоке создается текстура и спрайт, где находится картинка gameOver для показа завершения игры
     sf::Texture texture;
-    texture.loadFromFile("C:/Users/ilins/CLionProjects/Project/gameOver.png");
+    texture.loadFromFile("C:/Users/ilins/CLionProjects/Project/files/gameOver.png");
     sf::Sprite gameOver;
     gameOver.setTexture(texture);
     //
@@ -31,7 +30,7 @@ int main()
         clock.restart(); // перезапускаем часы для нового отсчета
         time = time / 800; // делим для того, чтобы задать "скорость игры", можно его изменять
 
-        sf::Event event; //создаем событие, для отслеживания действий с окном
+        sf::Event event{}; //создаем событие, для отслеживания действий с окном
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)

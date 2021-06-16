@@ -1,8 +1,7 @@
 #include "doctest/catch.hpp"
+#include "View.h"
 
-TEST_CASE("Краткое описание теста") {
-    // вызываешь какую-нибудь функцию или конструктор из кода
-    auto a = 5 * 5;
-    // потом в CHECK проверяешь, что она выполнилась правильно
-    CHECK(a == 25);
+TEST_CASE("setViewCamera") {
+    CHECK(setViewCamera(30, 20) == (204, 152));
+    CHECK(setViewCamera(780, 20) == (756, 152));
 }

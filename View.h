@@ -1,4 +1,6 @@
-#pragma once
+#ifndef VIEW_H
+#define VIEW_H
+
 sf::View view; // объект типа вида
 sf::View setViewCamera(sf::Vector2f coordinate) // функция для слежения за игроком
 {
@@ -12,3 +14,4 @@ sf::View setViewCamera(sf::Vector2f coordinate) // функция для сле�
     view.setCenter(tempCoordinate.x, tempCoordinate.y); // устанавливаем центр
     return view; //возвращаем камеру
 }
+#endif
