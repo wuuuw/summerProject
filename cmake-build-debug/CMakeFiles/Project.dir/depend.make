@@ -75,5 +75,8 @@ CMakeFiles/Project.dir/main.cpp.obj: ../SFML/include/SFML/Window/VideoMode.hpp
 CMakeFiles/Project.dir/main.cpp.obj: ../SFML/include/SFML/Window/Window.hpp
 CMakeFiles/Project.dir/main.cpp.obj: ../SFML/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/Project.dir/main.cpp.obj: ../SFML/include/SFML/Window/WindowStyle.hpp
+CMakeFiles/Project.dir/main.cpp.obj: ../Map.h
+CMakeFiles/Project.dir/main.cpp.obj: ../Player.h
+CMakeFiles/Project.dir/main.cpp.obj: ../View.h
 CMakeFiles/Project.dir/main.cpp.obj: ../main.cpp
 

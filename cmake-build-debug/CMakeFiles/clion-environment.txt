@@ -1,4 +1,4 @@
 ToolSet: w64 6.0 (local)@C:\mingw\mingw-w64-v8.0.0\mingw32
 Options: 
 
-Options:
+Options:-DSFML_DIR=C:/Users/ilins/CLionProjects/Project/SFML/lib/cmake/SFML
