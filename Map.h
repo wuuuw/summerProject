@@ -1,21 +1,33 @@
+#include <SFML/Graphics.hpp>
 #include <utility>
 
 #pragma once
 
-const int HEIGHT = 5; // высота карты
-const int WIDTH = 15; // ширина карты
+/// высота карты
+const int HEIGHT = 5;
+/// ширина карты
+const int WIDTH = 15;
 
-class Map : public sf::Drawable // класс карты, наследуем от drawable (аналогично player)
+/**
+* класс карты,
+* наследуем от drawable
+* (аналогично player)
+*/
+class Map : public sf::Drawable
 {
 private:
-
-    std::string path_; // путь до текстур
-    sf::Texture texture_; // текстура
-    sf::Sprite* sprite_ = new sf::Sprite(); // спрайт
+    /// путь до текстур
+    std::string path_;
+    /// текстура
+    sf::Texture texture_;
+    /// спрайт
+    sf::Sprite* sprite_ = new sf::Sprite();
 
 public:
-
-    sf::String tileMap[HEIGHT] = // массив, в котором хранится карта
+    /** массив, в котором хранится карта, где
+     * G - золото, O - шипы, H - сердце
+     */
+    sf::String tileMap[HEIGHT] =
             {
                     "   G    OOG H G",
                     "  O  O    O  O ",
@@ -23,36 +35,43 @@ public:
                     "O  O  O  O O   ",
                     " GOO        G  "
             };
-    // G - золото
-    // O - шипы
-    // H - сердце
 
-    explicit Map(std::string path) // конструктор класса
+    /**
+     * конструктор класса
+     * \param path путь до файла
+     */
+    explicit Map(std::string path)
     {
-        this->path_ = std::move(path); // инициализируем значением переменную пути
+        this->path_ = std::move(path); /** инициализируем значением переменную пути */
 
-        loadTexture(path_); // загружаем текструы
+        loadTexture(path_); /** загружаем текструы */
     }
 
-    // собственно метод загрузки текстур
+    /**
+     * собственно метод загрузки текстур
+     * \param path путь до файла
+     */
     void loadTexture(const std::string& path)
     {
         texture_.loadFromFile(path);
         sprite_->setTexture(texture_);
     }
 
-    // унаследованный метод для удобной отрисовки
+    /**
+     * унаследованный метод для удобной отрисовки
+     * \param target текстура
+     */
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override
     {
-        // в двух циклах прохоДимся по каждому элементу карты
+        /** в двух циклах проходимся по каждому элементу карты */
         for (int i = 0; i < HEIGHT; i++)
         {
             for (int j = 0; j < WIDTH; j++)
             {
-                // определяем его тип
+                /** определяем его тип */
                 switch (tileMap[i][j])
                 {
-                    // в соответствии с типом выбираем нужную текстуру из тайлсета
+                    /** в соответствии с типом выбираем нужную текстуру из тайлсета */
                     case ' ':
                         sprite_->setTextureRect(sf::IntRect(0, 0, 64, 64));
                         break;
@@ -67,8 +86,8 @@ public:
                         break;
                 }
 
-                sprite_->setPosition(j * 64, i * 64); // распологаем текстуру в нужном месте
-                target.draw(*sprite_); // отрисовываем
+                sprite_->setPosition(j * 64, i * 64); /** распологаем текстуру в нужном месте */
+                target.draw(*sprite_); /** отрисовываем */
             }
         }
     }
